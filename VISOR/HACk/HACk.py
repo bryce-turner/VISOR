@@ -28,6 +28,7 @@ class c():
 	REF = ''
 	BED = list()
 	store = False
+	seed = None
 
 class Overlap():
 
@@ -278,6 +279,9 @@ def run(parser,args):
 	c.REF=os.path.abspath(args.genome)
 	c.BED=[os.path.abspath(x) for x in args.bedfile[0]]
 	c.store=args.vcf #but not yet used. Just for future reference
+	c.seed=args.seed
+
+	random.seed(c.seed)
 	
 	#main
 
