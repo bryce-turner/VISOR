@@ -13,7 +13,7 @@ import resource
 import random
 from datetime import datetime
 from collections import defaultdict
-from shutil import which,copyfileobj
+from shutil import which,copyfileobj,rmtree
 import gzip
 
 #additional modules
@@ -739,13 +739,13 @@ def run(parser,args):
 
 		for d in hapdirs:
 
-			os.rmdir(d)
+			rmtree(d)
 
 		#clone-directories
 
 		for d in clonedirs:
 
-			os.rmdir(d)
+			rmtree(d)
 
 	now=datetime.now().strftime('%d/%m/%Y %H:%M:%S')
 	print('[' + now + '][Message] Done')

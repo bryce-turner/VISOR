@@ -13,7 +13,7 @@ import resource
 import random
 from datetime import datetime
 from collections import defaultdict
-from shutil import which,copyfileobj
+from shutil import which,copyfileobj,rmtree
 
 #additional modules
 
@@ -1183,13 +1183,13 @@ def run(parser,args):
 
 			for d in hapdirs:
 
-				os.rmdir(d)
+				rmtree(d)
 
 			#clone-directories
 
 			for d in clonedirs:
 
-				os.rmdir(d)
+				rmtree(d)
 
 	else:
 
