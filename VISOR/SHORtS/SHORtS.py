@@ -11,6 +11,7 @@ import math
 import multiprocessing
 import resource
 import random
+import time
 from datetime import datetime
 from collections import defaultdict
 from shutil import which,copyfileobj
@@ -1180,14 +1181,15 @@ def run(parser,args):
 
 			#clean directories
 			#haplotpye-directories
+			time.sleep(10)
 
-            # for d in hapdirs:
-            # os.rmdir(d)
+			for d in hapdirs:
+				os.rmdir(d)
 
 			#clone-directories
 
-            # for d in clonedirs:
-            # os.rmdir(d)
+			for d in clonedirs:
+				os.rmdir(d)
 
 	else:
 

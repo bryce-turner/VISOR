@@ -11,6 +11,7 @@ import math
 import multiprocessing
 import resource
 import random
+import time
 from datetime import datetime
 from collections import defaultdict
 from shutil import which,copyfileobj
@@ -736,12 +737,15 @@ def run(parser,args):
 
 		#clean directories
 		#haplotpye-directories
-		# for d in hapdirs:
-		# 	rmtree(d)
+		time.sleep(10)
 
-		# #clone-directories
-		# for d in clonedirs:
-		# 	rmtree(d)
+		for d in hapdirs:
+			os.rmdir(d)
+
+		#clone-directories
+
+		for d in clonedirs:
+			os.rmdir(d)
 
 	now=datetime.now().strftime('%d/%m/%Y %H:%M:%S')
 	print('[' + now + '][Message] Done')
