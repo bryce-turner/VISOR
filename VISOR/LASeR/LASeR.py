@@ -10,10 +10,7 @@ import subprocess
 import math
 import multiprocessing
 import resource
-import random
-import time
 from datetime import datetime
-from collections import defaultdict
 from shutil import which,copyfileobj
 import gzip
 
@@ -732,20 +729,7 @@ def run(parser,args):
 		os.remove(BAML) #remove BAM list
 
 		for b in allbams: #remove all the initial BAM files
-
 			os.remove(b)
-
-		#clean directories
-		#haplotpye-directories
-		time.sleep(10)
-
-		for d in hapdirs:
-			os.rmdir(d)
-
-		#clone-directories
-
-		for d in clonedirs:
-			os.rmdir(d)
 
 	now=datetime.now().strftime('%d/%m/%Y %H:%M:%S')
 	print('[' + now + '][Message] Done')
