@@ -13,7 +13,7 @@ import resource
 import random
 from datetime import datetime
 from collections import defaultdict
-from shutil import which,copyfileobj,rmtree
+from shutil import which,copyfileobj
 
 #additional modules
 
@@ -1181,15 +1181,13 @@ def run(parser,args):
 			#clean directories
 			#haplotpye-directories
 
-			for d in hapdirs:
-
-				rmtree(d)
+            # for d in hapdirs:
+            # os.rmdir(d)
 
 			#clone-directories
 
-			for d in clonedirs:
-
-				rmtree(d)
+            # for d in clonedirs:
+            # os.rmdir(d)
 
 	else:
 

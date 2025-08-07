@@ -13,7 +13,7 @@ import resource
 import random
 from datetime import datetime
 from collections import defaultdict
-from shutil import which,copyfileobj,rmtree
+from shutil import which,copyfileobj
 import gzip
 
 #additional modules
@@ -736,16 +736,12 @@ def run(parser,args):
 
 		#clean directories
 		#haplotpye-directories
+		# for d in hapdirs:
+		# 	rmtree(d)
 
-		for d in hapdirs:
-
-			rmtree(d)
-
-		#clone-directories
-
-		for d in clonedirs:
-
-			rmtree(d)
+		# #clone-directories
+		# for d in clonedirs:
+		# 	rmtree(d)
 
 	now=datetime.now().strftime('%d/%m/%Y %H:%M:%S')
 	print('[' + now + '][Message] Done')
