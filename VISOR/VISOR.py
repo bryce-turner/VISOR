@@ -89,6 +89,7 @@ def main():
 		
 	optional.add_argument('--threads', help='number of cores to use for mapping (minimap2 with preset for short reds) [1]', metavar='', type=int, default=1)
 	optional.add_argument('--tag', help='tag simulated BAM by clone (CL-tag) and haplotype (HP-tag). Does not apply to strand-seq data, where cells and haplotypes are separated', action='store_true')
+	optional.add_argument('--haploid', help='set wgsim to simulate haploid data (likely recommended as HACk creates a haplotype fasta to simulate)', action='store_true')
 	optional.add_argument('--fastq', help='store synthetic read pairs in FASTQ format in the output folder. Does not work for strand-seq data', action='store_true')
 	optional.add_argument('--compress', help='gzip compress output FASTQ', action='store_true')
 

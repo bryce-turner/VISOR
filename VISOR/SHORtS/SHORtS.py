@@ -55,6 +55,7 @@ class c():
 	mutation=0
 	indels=0
 	extindels=0
+	is_hap=0
 
 	#bulk
 
@@ -293,8 +294,8 @@ def BulkSim(w,c):
 			now=datetime.now().strftime('%d/%m/%Y %H:%M:%S')
 			print('[' + now + '][Message] Simulating')
 
-			wgsim.core(r1=mate1h, r2=mate2h, ref=tmpfa, err_rate=c.error, mut_rate=c.mutation, indel_frac=c.indels, indel_ext=c.extindels, N=haploreadsN, dist=c.distance, stdev=c.stdev, size_l=c.length, size_r=c.length,max_n=0.05, is_hap=0, is_fixed=0, seed=0)
-			wgsim.core(r1=mate1r, r2=mate2r, ref=tmpref, err_rate=c.error, mut_rate=c.mutation, indel_frac=c.indels, indel_ext=c.extindels, N=refreadsN, dist=c.distance, stdev=c.stdev, size_l=c.length, size_r=c.length,max_n=0.05, is_hap=0, is_fixed=0, seed=0)
+			wgsim.core(r1=mate1h, r2=mate2h, ref=tmpfa, err_rate=c.error, mut_rate=c.mutation, indel_frac=c.indels, indel_ext=c.extindels, N=haploreadsN, dist=c.distance, stdev=c.stdev, size_l=c.length, size_r=c.length,max_n=0.05, is_hap=c.is_hap, is_fixed=0, seed=0)
+			wgsim.core(r1=mate1r, r2=mate2r, ref=tmpref, err_rate=c.error, mut_rate=c.mutation, indel_frac=c.indels, indel_ext=c.extindels, N=refreadsN, dist=c.distance, stdev=c.stdev, size_l=c.length, size_r=c.length,max_n=0.05, is_hap=c.is_hap, is_fixed=0, seed=0)
 
 			os.remove(tmpfa)
 			os.remove(tmpref)
@@ -349,7 +350,7 @@ def BulkSim(w,c):
 			now=datetime.now().strftime('%d/%m/%Y %H:%M:%S')
 			print('[' + now + '][Message] Simulating')
 
-			wgsim.core(r1=mate1h, r2=mate2h, ref=tmpfa, err_rate=c.error, mut_rate=c.mutation, indel_frac=c.indels, indel_ext=c.extindels, N=Nreads, dist=c.distance, stdev=c.stdev, size_l=c.length, size_r=c.length,max_n=0.05, is_hap=0,  is_fixed=0, seed=0)
+			wgsim.core(r1=mate1h, r2=mate2h, ref=tmpfa, err_rate=c.error, mut_rate=c.mutation, indel_frac=c.indels, indel_ext=c.extindels, N=Nreads, dist=c.distance, stdev=c.stdev, size_l=c.length, size_r=c.length,max_n=0.05, is_hap=c.is_hap, is_fixed=0, seed=0)
 
 			os.remove(tmpfa)
 
@@ -988,6 +989,9 @@ def run(parser,args):
 	c.mutation=args.mutation
 	c.indels=args.indels
 	c.extindels=args.extindels
+
+	if args.haploid:
+		c.is_hap = 1
 
 	if not c.strandseq:
 
